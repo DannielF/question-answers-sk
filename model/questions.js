@@ -1,8 +1,8 @@
 const questions_tech = {
   1: {
-    question: "Framework para JavaScript",
+    question: "¿Es un framework para JavaScript?",
     answers: ["Read", "Angular", "Vuex", "Embert"],
-    correct: "Angular",
+    correct: "angular",
   },
   2: {
     question: "En que año salió Vue.js",
@@ -137,7 +137,6 @@ const questions_spanish = {
     correct: "pasto"
   }
 }
-
 
 export {
   questions_tech as tech,
