@@ -4,8 +4,11 @@ import { tech, math, spanish, biology, culture } from '../model/questions.js';
 const startGame = () => {
   const playerName = document.querySelector("#playerName").value;
   setPlayer(playerName);
-  showQuestions(tech);
+  loopQuestions();
 }
+
+const buttonStart = document.querySelector("#startGame");
+buttonStart.addEventListener("click", startGame);
 
 const setPlayer= (playerName) => {
   history.push({player: playerName, points: 0});
@@ -15,14 +18,28 @@ const setPlayer= (playerName) => {
   mainGame.append(p);
 }
 
-const category = tech;
+const loopQuestions = () => {
+  const categories = [tech, math, spanish, biology, culture];
+  let i = 0;
+  let isLoop = true;
+  do {
+    showQuestions(categories[i]);
+    if (checkUserAnswer()) {
+      i++;
+    } else {
+      isLoop = false;
+      console.log("game over")
+    }
+  } while (isLoop);
+}
 
 const showQuestions = (category) => {
   const mainGame = document.querySelector("#main-game");
   const question = document.createElement("p");
-  question.innerHTML = "Pregunta: " + category[1].question;
+  const randomQuestion = Math.floor((Math.random() * 5) + 1);
+  question.innerHTML = "Pregunta: " + category[randomQuestion].question;
   mainGame.append(question);
-  const answers = category[1].answers;
+  const answers = category[randomQuestion].answers;
 
   let i = 1;
   for (let a of answers) {
@@ -32,28 +49,26 @@ const showQuestions = (category) => {
     i++;
   }
 
-  checkUserAnswer(mainGame, category);
+  checkUserAnswer(category, randomQuestion);
 }
 
-const buttonStart = document.querySelector("#startGame");
-buttonStart.addEventListener("click", startGame);
+function checkUserAnswer(category, randomQuestion) {
+  const mainSection = document.querySelector("#main-game");
 
-
-function checkUserAnswer(mainGame, category) {
   const inputUser = document.createElement("input");
   inputUser.setAttribute("id", "answerUser");
-  mainGame.append(inputUser);
+
   const buttonAnswer = document.createElement("button");
   buttonAnswer.setAttribute("id", "buttonAnswer");
   buttonAnswer.innerHTML = "Responder";
-  mainGame.append(buttonAnswer);
+  mainSection.append(inputUser, buttonAnswer);
+
   buttonAnswer.addEventListener("click", (e) => {
     const answerUser = document.querySelector("#answerUser").value.toLowerCase();
-    const answerCorrect = category[1].correct.toLowerCase();
+    const answerCorrect = category[randomQuestion].correct.toLowerCase();
     if (answerUser == answerCorrect) {
-      console.log(answerUser);
-      console.log(++history[0].points);
       showPoints();
+      return true;
     }
   });
 }
