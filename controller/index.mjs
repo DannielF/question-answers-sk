@@ -3,7 +3,7 @@ import { tech, math, spanish, biology, culture } from '../model/questions.js';
 
 const mainGame = document.querySelector("#main-game");
 let buttonAnswer = "";
-let isCorrect = false;
+let level = 0;
 
 const setPlayer = (playerName) => {
   history.push({ player: playerName, points: 0 });
@@ -47,15 +47,15 @@ function checkUserAnswer(category, randomQuestion) {
     .toLowerCase();
 
   if (answerUser == answerCorrect) {
-    isCorrect = true
     history[0].points++
     showPoints()
-    
+    level++;
+    loopQuestions();
   } else {
     const p = document.createElement("p")
     p.innerHTML = "Respuesta incorrecta"
     mainGame.appendChild(p)
-    isCorrect = false
+    console.log("game over")
   }
 }
 
@@ -67,28 +67,13 @@ function showPoints() {
 
 const loopQuestions = () => {
   const categories = [tech, math, spanish, biology, culture];
-  let i = 0;
-  let category
-  let isLoop = true;
-  let randomQuestion;
+  let category = categories[level]
+  let randomQuestion = Math.floor((Math.random() * 5) + 1);
+  showQuestions(category, randomQuestion)
   
   buttonAnswer.addEventListener("click", (e) => {
     checkUserAnswer(category, randomQuestion, buttonAnswer)
   })
-
-  // do {
-  //   randomQuestion = Math.floor((Math.random() * 5) + 1)
-  //   category = categories[i];
-  //   showQuestions(category, randomQuestion)
-  //   if (isCorrect) {
-  //     console.log("next question");
-  //     i++;
-
-  //   } else {
-  //     isLoop = false;
-  //     console.log("game over")
-  //   }
-  // } while (isLoop);
 }
 
 const startGame = () => {
