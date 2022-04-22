@@ -4,16 +4,16 @@ import { tech, math, spanish, biology, culture } from '../model/questions.js';
 const mainGame = document.querySelector("#main-game");
 let buttonAnswer = "";
 let level = 0;
+let idPlayer = 0;
 
 const setPlayer = (playerName) => {
   history.push({ player: playerName, points: 0 });
   const p = document.createElement("p");
-  p.innerHTML = `Bienvenido ${history[0].player}`;
+  p.innerHTML = `Bienvenido ${history[idPlayer].player}`;
   mainGame.appendChild(p);
 }
 
 const showQuestions = (category, randomQuestion) => {
-  console.log("showQuestions");
   const question = document.createElement("p");
   question.setAttribute("id", "question");
   question.innerHTML = "Pregunta: " + category[randomQuestion].question;
@@ -39,7 +39,7 @@ const showQuestions = (category, randomQuestion) => {
 }
 
 function checkUserAnswer(category, randomQuestion) {
-  console.log("checkUserAnswer");
+  console.log(idPlayer);
 
   const answerUser = document.querySelector("#answerUser")
     .value
@@ -49,38 +49,60 @@ function checkUserAnswer(category, randomQuestion) {
     .toLowerCase();
 
   if (answerUser == answerCorrect) {
-    history[0].points++
-    showPoints()
+    console.log(idPlayer);
+    history[idPlayer].points++
     level++;
     removeChilds();
+    showPoints()
     loopQuestions();
 
   } else {
     const p = document.createElement("p")
     p.innerHTML = "Respuesta incorrecta"
     mainGame.appendChild(p)
-    console.log("game over")
+    removeChilds();
+    const endGame = document.createElement("p");
+    endGame.setAttribute("id", "endGame");
+    endGame.innerHTML = "Fin del juego";
+    mainGame.appendChild(endGame);
+    idPlayer++;
+    level = 0;
   }
 }
 
 function showPoints() {
   const points = document.createElement("p");
-  points.innerHTML = "Puntos: " + history[0].points;
-  mainGame.append(points);
+  points.setAttribute("id", "points");
+  points.innerHTML = "Puntos: " + history[idPlayer].points;
+  mainGame.appendChild(points);
 }
 
 const loopQuestions = () => {
-  const categories = [tech, math, spanish, biology, culture];
-  let category = categories[level]
-  let randomQuestion = Math.floor((Math.random() * 5) + 1);
-  showQuestions(category, randomQuestion)
-  
-  buttonAnswer.addEventListener("click", (e) => {
-    checkUserAnswer(category, randomQuestion, buttonAnswer)
-  })
+
+  if (level < 5) {
+
+    const categories = [tech, math, spanish, biology, culture];
+    let category = categories[level]
+    let randomQuestion = Math.floor((Math.random() * 5) + 1);
+    showQuestions(category, randomQuestion)
+    
+    buttonAnswer.addEventListener("click", (e) => {
+      checkUserAnswer(category, randomQuestion, buttonAnswer)
+    })
+
+  } else {
+    const gameWon = document.createElement("p");
+    gameWon.setAttribute("id", "gameWon");
+    gameWon.innerHTML = "Ganaste el juego";
+    mainGame.appendChild(gameWon);
+    level = 0;
+    idPlayer++;
+  }
+
 }
 
 const startGame = () => {
+  removeChilds();
   const playerName = document.querySelector("#playerName").value;
   setPlayer(playerName);
   loopQuestions();
@@ -89,9 +111,23 @@ const startGame = () => {
 const buttonStart = document.querySelector("#startGame");
 buttonStart.addEventListener("click", startGame);
 
+
 const removeChilds = () => {
   const childs = document.querySelectorAll("#main-game > *");
   for (let c of childs) {
     c.remove();
   }
 }
+
+const showHistory = document.querySelector("#showHistory");
+showHistory.addEventListener("click", () => {
+  removeChilds();
+  const p = document.createElement("p");
+  p.innerHTML = "Historial";
+  mainGame.appendChild(p);
+  for (let h of history) {
+    const p = document.createElement("p");
+    p.innerHTML = `${h.player} - ${h.points}`;
+    mainGame.appendChild(p);
+  }
+})

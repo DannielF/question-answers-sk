@@ -100,13 +100,13 @@ const questions_math = {
   },
   4: {
     question: "Número ordinal trigésimo quinto en cifras...",
-    answers: ["33", "83","73", "63"],
-    correct: "63",
+    answers: ["35", "83","73", "63"],
+    correct: "35",
   },
   5: {
     question: "¿¿Cuál es el resultado de multiplicar 7x9??",
-    answers: ["leche", "queso", "plantas", "pasto"],
-    correct: "leche",
+    answers: ["63", "queso", "plantas", "pasto"],
+    correct: "63",
   },
 }
 
