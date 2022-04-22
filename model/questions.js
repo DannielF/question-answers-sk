@@ -78,7 +78,7 @@ const questions_biology = {
   5: {
     question: "¿Qué comen las vacas?",
     answers: ["leche", "queso", "plantas", "pasto"],
-    correct: "leche",
+    correct: "pasto",
   },
 }
 

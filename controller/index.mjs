@@ -15,6 +15,7 @@ const setPlayer = (playerName) => {
 const showQuestions = (category, randomQuestion) => {
   console.log("showQuestions");
   const question = document.createElement("p");
+  question.setAttribute("id", "question");
   question.innerHTML = "Pregunta: " + category[randomQuestion].question;
   mainGame.appendChild(question);
   const answers = category[randomQuestion].answers;
@@ -22,6 +23,7 @@ const showQuestions = (category, randomQuestion) => {
   let i = 1;
   for (let a of answers) {
     const answer = document.createElement("li");
+    answer.setAttribute("id", "answer");
     answer.innerHTML = `${i}` + " : " + a;
     mainGame.appendChild(answer);
     i++;
@@ -50,7 +52,9 @@ function checkUserAnswer(category, randomQuestion) {
     history[0].points++
     showPoints()
     level++;
+    removeChilds();
     loopQuestions();
+
   } else {
     const p = document.createElement("p")
     p.innerHTML = "Respuesta incorrecta"
@@ -84,3 +88,10 @@ const startGame = () => {
 
 const buttonStart = document.querySelector("#startGame");
 buttonStart.addEventListener("click", startGame);
+
+const removeChilds = () => {
+  const childs = document.querySelectorAll("#main-game > *");
+  for (let c of childs) {
+    c.remove();
+  }
+}
