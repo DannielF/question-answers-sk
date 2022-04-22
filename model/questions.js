@@ -1,11 +1,11 @@
 const questions_tech = {
   1: {
-    question: "¿Es un framework para JavaScript?",
+    question: "Es un framework para JavaScript",
     answers: ["Read", "Angular", "Vuex", "Embert"],
     correct: "angular",
   },
   2: {
-    question: "En que año salió Vue.js",
+    question: "¿En qué año salió Vue.js?",
     answers: ["2015", "2016", "2017", "2018"],
     correct: "2015",
   },
@@ -15,13 +15,13 @@ const questions_tech = {
     correct: "JavaScript Object Notation",
   },
   4: {
-    question: "¿Qué es el motor de JS de Chrome?",
+    question: "¿Cuál es el motor de JS de Chrome?",
     answers: ["V8", "Chrome", "Blink", "Webkit"],
     correct: "V8",
   },
   5: {
     question: "¿Cuál el fue uno de los primero nombres de JS?",
-    answers: ["liveScript", "JavaScript", "CoffeeScript", "TypeScript"],
+    answers: ["LiveScript", "JavaScript", "CoffeeScript", "TypeScript"],
     correct: "CoffeeScript",
   }
 }
@@ -39,13 +39,13 @@ const questions_culture = {
   },
   3: {
     question: "¿Quién ganó la guerra de los Mil Días?",
-    answers: ["centro democrático", "cambio radical", "partido liberal", "partido conservador"],
-    correct: "partido conservador"
+    answers: ["Centro democrático", "Cambio radical", "Partido liberal", "Partido conservador"],
+    correct: "Partido conservador"
   },
   4: {
     question: "¿Cuál es el significado de el color azul de la bandera Colombiana?",
-    answers: ["por las naciones unidas", "Los sumerios", "por el cielo", "por el color de ojos de las ballenas", "por los dos mares que nos rodean"],
-    correct: "por los dos mares que nos rodean"
+    answers: ["Por las naciones unidas", "Los sumerios", "Por el color de ojos de las ballenas", "Por los dos mares que nos rodean"],
+    correct: "Por los dos mares que nos rodean"
   },
   5: {
     question: "¿De qué país se independizó Colombia?",
@@ -57,28 +57,28 @@ const questions_culture = {
 const questions_biology = {
   1: {
     question: "¿Significado de ADN?",
-    answers: ["add, delete, new", "Anuncios de google", "comida tipica China", "Ácido desoxirribonucleico"],
-    correct: "Ácido desoxirribonucleico",
+    answers: ["Add, Delete, New", "Anuncios de google", "Comida tipica China", "Ácido Desoxirribonucleico"],
+    correct: "Ácido Desoxirribonucleico",
   },
   2: {
     question: "Se alimenta de toda clase de sustancias orgánicas...",
-    answers: ["animales", "herviboros", "carnivoros", "omnívoro"],
-    correct: "omnívoro",
+    answers: ["Animales", "Herviboros", "Carnivoros", "Omnívoro"],
+    correct: "Omnívoro",
   },
   3: {
     question: "No es un animal cuadrupedo",
-    answers: ["perro", "tigre", "elefante", "gallina"],
-    correct: "gallina",
+    answers: ["Perro", "Tigre", "Elefante", "Gallina"],
+    correct: "Gallina",
   },
   4: {
     question: "¿Cómo se le llama al ser vivo que se sostiene en dos patas?",
-    answers: ["homo-sapiens", "mono", "cuadrupedo", "bípedo"],
+    answers: ["Homo-sapiens", "Mono", "Cuadrupedo", "Bípedo"],
     correct: "bípedo",
   },
   5: {
     question: "¿Qué comen las vacas?",
-    answers: ["leche", "queso", "plantas", "pasto"],
-    correct: "pasto",
+    answers: ["Leche", "Queso", "Carne", "Pasto"],
+    correct: "Pasto",
   },
 }
 
@@ -95,7 +95,7 @@ const questions_math = {
   },
   3: {
     question: "Para calcular cuánto es un tercio de 3996, ¿qué tienes que hacer?",
-    answers: [ "Multiplicar por tres", "Restar tres","sumas tres", "Dividir entre tres"],
+    answers: [ "Multiplicar por tres", "Restar tres","Sumar tres", "Dividir entre tres"],
     correct: "Dividir entre tres",
   },
   4: {
@@ -104,8 +104,8 @@ const questions_math = {
     correct: "35",
   },
   5: {
-    question: "¿¿Cuál es el resultado de multiplicar 7x9??",
-    answers: ["63", "queso", "plantas", "pasto"],
+    question: "¿Cuál es el resultado de multiplicar 7x9?",
+    answers: ["63", "14", "49", "70"],
     correct: "63",
   },
 }
@@ -113,18 +113,18 @@ const questions_math = {
 const questions_spanish = {
   1: {
     question: "Grupo de dos vocales distintas y contiguas que se pronuncian en una sola sílaba",
-    answers: ["párrafo", "oración", "tílde", "diptongo"],
-    correct: "diptongo"
+    answers: ["Párrafo", "Oración", "Tílde", "Diptongo"],
+    correct: "Diptongo"
   },
   2: {
     question: "Signos de puntuación que se emplean para insertar una información complementaria en medio de una frase",
-    answers: ["la coma", "punto y coma", "comillas", "paréntesis"],
-    correct: "paréntesis"
+    answers: ["Coma", "Punto y Coma", "Comillas", "Paréntesis"],
+    correct: "Paréntesis"
   },
   3: {
     question: "Que llevan el acento en la antepenúltima sílaba y a todas se les marca la tilde",
-    answers: ["agudas", "graves", "sobresdrújulas", "esdrújulas"],
-    correct: "esdrújulas"
+    answers: ["Agudas", "Graves", "Sobresdrújulas", "Esdrújulas"],
+    correct: "Esdrújulas"
   },
   4: {
     question: "¿Cúal es el signo ampersand?",
@@ -133,8 +133,8 @@ const questions_spanish = {
   },
   5: {
     question: "Palabra que suena de igual modo que otra, pero que difiere en el significado",
-    answers: ["leche", "queso", "plantas", "pasto"],
-    correct: "pasto"
+    answers: ["Graves", "Agudas", "Esdrújulas", "Homófona"],
+    correct: "Homófona"
   }
 }
 
