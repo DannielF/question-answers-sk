@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background: linear-gradient(to right bottom, #d1e4de 30%, #a3eae4 60%);
+  width: 100%;
+  height: 100vh;
+}
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#main-intro {
+  padding-block-start: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-intro h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#main-intro p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+#main-intro #playerName {
+  width: 15rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+}
+
+#main-intro #startGame {
+  margin-block-start: 1rem;
+  width: 15rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+#main-intro #showHistory {
+  margin-block-start: 1rem;
+  width: 15rem;
+  height: 3rem;
+  cursor: pointer;
+}
+
+#main-game {
+  padding-block-start: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-game p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+#main-game :nth-child(2){
+  font-weight: bold;
+}
+
+#main-game #answer {
+  font-size: 1.8rem;
+}
+
+#main-game #answerUser {
+  margin-block-start: 2rem;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+}
+
+#main-game #buttonAnswer {
+  margin-block-start: 1rem;
+  width: 15rem;
+  height: 3rem;
+  cursor: pointer;
+}

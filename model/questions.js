@@ -2,7 +2,7 @@ const questions_tech = {
   1: {
     question: "Es un framework para JavaScript",
     answers: ["Read", "Angular", "Vuex", "Embert"],
-    correct: "angular",
+    correct: "Angular",
   },
   2: {
     question: "¿En qué año salió Vue.js?",
